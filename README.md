@@ -1,2 +1,2 @@
 # netio-data-collector
-Listen on HTTP port a tranforms incomming data to file
+Simple HTTP server listening TCP on specific port for incomming data. Data are continuosly saved into CSV file.
