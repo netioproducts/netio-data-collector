@@ -5,12 +5,12 @@ import argparse
 import time
 from http.server import HTTPServer
 
-from Handles import ServerHandler
+from handles import ServerHandler
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='NETIO PUSH Data logger')
-    parser.add_argument('-n', '--host', help='Address to attach server to', required=False, default='localhost')
+    parser.add_argument('-n', '--host', help='Address to attach server to', required=False, default='8.8.8.8')
     parser.add_argument('-p', '--port', help='Port to listen on', required=False, default=9000)
     args = vars(parser.parse_args())
     # {'host': 'localhost', 'port': 9000, 'name': 'log', 'output': 'log/'}

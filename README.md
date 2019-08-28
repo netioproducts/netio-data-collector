@@ -1,45 +1,60 @@
 
 # netio-data-collector
-Simple HTTP server listening TCP on specific port for incomming data. Data are continuosly saved into CSV file.
+Simple HTTP server listening TCP on specific port for incoming data. Data is continuously saved into CSV file.
 
+## Table of Contents
+- [Installation and usage](#Installation-and-usage)
+    - [Linux dependencies](#Linux-dependencies)
+    - [Windows dependencies](#Windows-dependencies)
+    - [Installation](#Installation)
+    - [Usage](#Usage)
 
-## installation and usage
+## Installation and usage
 
-### instalattion
-
-first you need to install python3.6+ and git
-
-on ubuntu/debian
+#### Requirements:
+- Python 3.6 or newer
+### Linux dependencies
+##### Ubuntu/Debian
 ```
-sudo apt-get install python3 git
-```
-
-on Arch python3 is by default pre-installed
-
-
-clone the reposiory and change directory
-```
-git clone git@github.com:netioproducts/netio-data-collector.git
-cd netio-data-collector
+sudo apt-get install python3
 ```
 
-### usage
-
-just run the `Main.py` with python3
+##### Fedora/RHEL 8+/CentOS 8+
 ```
-python3 Main.py
-```
-or 
-```
-./Main.py
+sudo dnf install python3
 ```
 
-the script will save everything in directory specified in `Config.py`  the default is `$(git-root)/log/log_$(device-mac).csv`
+##### OpenSUSE
+```
+sudo zypper install python3
+```
 
-each device will have separate csv file.
+### Windows dependencies
+- Download latest python 3 package from [the official site](https://www.python.org/downloads/)
+- Install the package and check "Add Python 3.x to PATH"
+
+##### Installation
+- clone the repository `git clone https://github.com/netioproducts/netio-data-collector.git` (requires git)
+- change into the cloned directory `cd netio-data-collector`
+**OR**
+- download the repository from [GitHub](https://github.com/netioproducts/netio-data-collector.git)
+- unzip the downloaded folder
+- open the unzipped folder in file explorer
+- open terminal in the current location (hold SHIFT and right click inside the folder, click on `Open PowerShell window here` or `Open Command Prompt window here`)
+
+### Usage
+
+##### Linux usage
+run `python3 main.py`
+
+##### Windows usage
+run `python main.py`
+
+The output will be saved to a directory specified in `config.py`  the default is `$(git-root)/log/log_$(device-mac).csv`  
+Each device will have separate `.csv` file.
 
 
-### parameters
+### Parameters
 | short |  long  | default | description |
 |-------|--------|---------|-------------|
 |  -n   | --host | 0.0.0.0 | ip address to listen on. |

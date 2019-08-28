@@ -2,8 +2,8 @@ import json
 from http.server import BaseHTTPRequestHandler
 import os
 
-from Config import Config
-from Utils import flatten
+from config import Config
+from utils import flatten
 
 
 class ServerHandler(BaseHTTPRequestHandler):
