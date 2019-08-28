@@ -22,7 +22,8 @@ class ServerHandler(BaseHTTPRequestHandler):
             data = self.rfile.read(int(self.headers['Content-Length'])).decode('utf-8')
             parse_xml(data)
         else:
-            self.respond()
+            self.respond(404)
+            return
 
         self.respond(200)
 
@@ -30,8 +31,10 @@ class ServerHandler(BaseHTTPRequestHandler):
         self.send_response(status)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
-        self.wfile.write(bytes('OK', 'UTF-8'))
-
+        if status == 200:
+            self.wfile.write(bytes('OK', 'UTF-8'))
+        if status == 404:
+            self.wfile.write(bytes('404 Not Found', 'UTF-8'))
 
 def save(dict_data: dict):
     """
