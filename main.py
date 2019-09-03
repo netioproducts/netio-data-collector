@@ -6,6 +6,7 @@ import time
 from http.server import HTTPServer
 
 from handles import ServerHandler
+import socket
 
 
 if __name__ == '__main__':
@@ -19,6 +20,11 @@ if __name__ == '__main__':
     print(time.asctime(), 'Server Starts - %s:%s' % (args['host'], args['port']))
 
     try:
+        hostname = socket.gethostname()
+        IP = socket.gethostbyname(hostname)
+        print ("Device - Target host HTTP server: http://" + IP + ":" + args['port'] + "/push/json")
+
+
         httpd.serve_forever()
     except KeyboardInterrupt:
         pass
