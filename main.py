@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     httpd = HTTPServer((args['host'], args['port']), ServerHandler)
     print(time.asctime(), 'Server Starts - %s:%s' % (args['host'], args['port']))
-    print(f"Set Netio push API destination address to: {get_local_ip()}:9000/push/json")
+    print(f"Device - Target host HTTP server: {get_local_ip()}:9000/push/json")
 
     try:
         httpd.serve_forever()
