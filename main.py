@@ -22,7 +22,7 @@ if __name__ == '__main__':
     try:
         hostname = socket.gethostname()
         IP = socket.gethostbyname(hostname)
-        print ("Device - Target host HTTP server: http://" + IP + ":" + args['port'] + "/push/json")
+        print ("Device - Target host HTTP server: http://" + IP + ":9000" + "/push/json")
 
 
         httpd.serve_forever()
