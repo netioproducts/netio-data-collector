@@ -1,4 +1,5 @@
 import collections
+import socket
 
 
 def flatten(d: collections.MutableMapping, parent_key='', sep='.') -> dict:
@@ -20,3 +21,14 @@ def flatten(d: collections.MutableMapping, parent_key='', sep='.') -> dict:
         else:
             items.append((new_key, v))
     return dict(items)
+
+def get_local_ip():
+    soc = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        soc.connect(('10.255.255.255', 1))
+        IP = soc.getsockname()[0]
+    except:
+        IP = '127.0.0.1'
+    finally:
+        soc.close()
+    return IP

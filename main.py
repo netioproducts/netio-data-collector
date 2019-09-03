@@ -6,7 +6,7 @@ import time
 from http.server import HTTPServer
 
 from handles import ServerHandler
-import socket
+from utils import get_local_ip
 
 
 if __name__ == '__main__':
@@ -18,13 +18,9 @@ if __name__ == '__main__':
 
     httpd = HTTPServer((args['host'], args['port']), ServerHandler)
     print(time.asctime(), 'Server Starts - %s:%s' % (args['host'], args['port']))
+    print(f"Set Netio push API destination address to: {get_local_ip()}:9000/push/json")
 
     try:
-        hostname = socket.gethostname()
-        IP = socket.gethostbyname(hostname)
-        print ("Device - Target host HTTP server: http://" + IP + ":9000" + "/push/json")
-
-
         httpd.serve_forever()
     except KeyboardInterrupt:
         pass
